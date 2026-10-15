@@ -1,0 +1,34 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:ca2f5948-6087-4f9f-aad2-16829f513281",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-10-09T16:57:22Z",
+    "tools": {
+      "services": [
+        {
+          "provider": {
+            "name": "PQCA"
+          },
+          "name": "CBOMkit"
+        }
+      ]
+    },
+    "properties": [
+      {
+        "name": "gitUrl",
+        "value": "https://github.com/auth0/java-jwt"
+      },
+      {
+        "name": "revision",
+        "value": "master"
+      },
+      {
+        "name": "commit",
+        "value": "29f252b"
+      }
+    ]
+  },
+  "dependencies": []
+}
