@@ -24,6 +24,12 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew assemble --no-daemon
 
+      - name: Copy dependency jars into the workspace
+        run: |
+          mkdir -p deps
+          find ~/.gradle/caches/modules-2/files-2.1 -name '*.jar' -exec cp {} deps/ \;
+          ls deps
+
       - name: Create CBOM
         uses: cbomkit/cbomkit-action@v2.3.0
         id: cbom
