@@ -27,7 +27,7 @@ Take a real open-source repository through the full migration path a client enga
 
 On a trial target, [auth0/java-jwt](https://github.com/auth0/java-jwt) at release 4.6.1, cbomkit v2.3.0 reported **zero cryptographic assets**. A manual review of the same commit found **five JCA operations** (three `Signature.getInstance` and two `Mac.getInstance` calls), all in one helper class that receives the algorithm name as a method parameter.
 
-A build-aware scan of the same commit (Gradle build plus dependency jars, then cbomkit-action v2.3.0) also reported zero, so a missing build is now a less likely explanation. The working hypothesis is that the scanner misses algorithm choices passed through helper methods; a controlled test fixture is next. Details: scans/00-trial-java-jwt and scans/01-java-jwt-build-aware.
+A build-aware scan of the same commit (Gradle build plus dependency jars, then cbomkit-action v2.3.0) also reported zero, so a missing build is now a less likely explanation. The working hypothesis is that the scanner misses algorithm choices passed through helper methods; a controlled test fixture is next. Details: [`scans/00-trial-java-jwt`](scans/00-trial-java-jwt/) and [`scans/01-java-jwt-build-aware`](scans/01-java-jwt-build-aware/).
 
 ## Repository layout
 
