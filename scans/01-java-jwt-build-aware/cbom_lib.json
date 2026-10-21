@@ -1,0 +1,38 @@
+{
+  "bomFormat" : "CycloneDX",
+  "specVersion" : "1.6",
+  "serialNumber" : "urn:uuid:af2edb1d-ce56-4870-a825-4df2dc1d464e",
+  "version" : 1,
+  "metadata" : {
+    "timestamp" : "2026-10-15T11:07:03Z",
+    "tools" : {
+      "services" : [
+        {
+          "provider" : {
+            "name" : "PQCA"
+          },
+          "name" : "CBOMkit"
+        }
+      ]
+    },
+    "properties" : [
+      {
+        "name" : "gitUrl",
+        "value" : "https://github.com/amaanparvezs/pqc-migration-project"
+      },
+      {
+        "name" : "revision",
+        "value" : "master"
+      },
+      {
+        "name" : "commit",
+        "value" : "a1c2bc8ea44dd11d682430ca6a7a3a856ed4c188"
+      },
+      {
+        "name" : "subfolder",
+        "value" : "lib"
+      }
+    ]
+  },
+  "dependencies" : [ ]
+}
