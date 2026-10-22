@@ -3,11 +3,11 @@
 | Field | Value |
 | --- | --- |
 | Target | This repository, `fixtures/indirection/` |
-| Commit | <full commit hash of the clean rerun> |
+| Commit | 4e96011c8178bc59efebc28e73e1bafd6922f055 |
 | Tool | `cbomkit/cbomkit-action@v2.3.0`, with `CBOMKIT_LANGUAGES: java` |
 | Workflow | [`.github/workflows/scan-fixture-indirection.yml`](../../.github/workflows/scan-fixture-indirection.yml) |
-| Run | GitHub Actions run #<number>, artifact `CBOM-fixture-indirection` |
-| Date | <date of the rerun> |
+| Artifact | `CBOM-fixture-indirection` |
+| Date | 2026-10-22 |
 
 ## Purpose
 

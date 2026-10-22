@@ -1,0 +1,99 @@
+{
+  "bomFormat" : "CycloneDX",
+  "specVersion" : "1.6",
+  "serialNumber" : "urn:uuid:6c930b5e-d7e5-4942-8dd9-47cc2b8e60ca",
+  "version" : 1,
+  "metadata" : {
+    "timestamp" : "2026-10-22T10:17:42Z",
+    "tools" : {
+      "services" : [
+        {
+          "provider" : {
+            "name" : "PQCA"
+          },
+          "name" : "CBOMkit"
+        }
+      ]
+    },
+    "properties" : [
+      {
+        "name" : "gitUrl",
+        "value" : "https://github.com/amaanparvezs/pqc-migration-project"
+      },
+      {
+        "name" : "revision",
+        "value" : "master"
+      },
+      {
+        "name" : "commit",
+        "value" : "ff7e606f1cde0e76a86b55f89ad7ea41f9969673"
+      },
+      {
+        "name" : "subfolder",
+        "value" : "fixtures/indirection/src/fixture"
+      }
+    ]
+  },
+  "components" : [
+    {
+      "type" : "cryptographic-asset",
+      "bom-ref" : "6080a1f6-956c-4fe3-b005-b4f90c2e4226",
+      "name" : "SHA-256",
+      "evidence" : {
+        "occurrences" : [
+          {
+            "location" : "fixtures/indirection/src/fixture/CaseA_Literal.java",
+            "line" : 8,
+            "offset" : 22,
+            "additionalContext" : "java.security.Signature#getInstance(Ljava/lang/String;)Ljava/security/Signature;"
+          }
+        ]
+      },
+      "cryptoProperties" : {
+        "assetType" : "algorithm",
+        "algorithmProperties" : {
+          "primitive" : "hash",
+          "parameterSetIdentifier" : "256",
+          "cryptoFunctions" : [
+            "digest"
+          ]
+        },
+        "oid" : "2.16.840.1.101.3.4.2.1"
+      }
+    },
+    {
+      "type" : "cryptographic-asset",
+      "bom-ref" : "4668fc2f-7749-43d0-8e30-73701bfaa97a",
+      "name" : "RSA-PKCS1-1.5-SHA-256",
+      "evidence" : {
+        "occurrences" : [
+          {
+            "location" : "fixtures/indirection/src/fixture/CaseA_Literal.java",
+            "line" : 8,
+            "offset" : 22,
+            "additionalContext" : "java.security.Signature#getInstance(Ljava/lang/String;)Ljava/security/Signature;"
+          }
+        ]
+      },
+      "cryptoProperties" : {
+        "assetType" : "algorithm",
+        "algorithmProperties" : {
+          "primitive" : "signature",
+          "parameterSetIdentifier" : "2048",
+          "cryptoFunctions" : [
+            "sign"
+          ]
+        },
+        "oid" : "1.2.840.113549.1.1.11"
+      }
+    }
+  ],
+  "dependencies" : [
+    {
+      "ref" : "4668fc2f-7749-43d0-8e30-73701bfaa97a",
+      "dependsOn" : [
+        "6080a1f6-956c-4fe3-b005-b4f90c2e4226"
+      ]
+    }
+  ]
+}

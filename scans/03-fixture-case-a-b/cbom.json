@@ -1,10 +1,10 @@
 {
   "bomFormat" : "CycloneDX",
   "specVersion" : "1.6",
-  "serialNumber" : "urn:uuid:e7d7e7f0-e7b4-4cd8-951d-ee0d21a5ba09",
+  "serialNumber" : "urn:uuid:2a09fbf1-1476-4e61-8dce-cfb0c939a841",
   "version" : 1,
   "metadata" : {
-    "timestamp" : "2026-10-22T10:34:04Z",
+    "timestamp" : "2026-10-22T14:27:42Z",
     "tools" : {
       "services" : [
         {
@@ -26,14 +26,14 @@
       },
       {
         "name" : "commit",
-        "value" : "eca650c49de0ff008d4c1da8f03a56b9a31b9be3"
+        "value" : "4e96011c8178bc59efebc28e73e1bafd6922f055"
       }
     ]
   },
   "components" : [
     {
       "type" : "cryptographic-asset",
-      "bom-ref" : "f3c5ff2b-8a44-4d45-b56a-06c134e4cd44",
+      "bom-ref" : "cbc0d0e4-614f-499d-952a-86e573826c11",
       "name" : "SHA-256",
       "evidence" : {
         "occurrences" : [
@@ -59,7 +59,7 @@
     },
     {
       "type" : "cryptographic-asset",
-      "bom-ref" : "74035280-723a-4a3b-a00d-4f2fe90228d1",
+      "bom-ref" : "4f97ee81-4627-42f8-99db-405becb8d1ae",
       "name" : "RSA-PKCS1-1.5-SHA-256",
       "evidence" : {
         "occurrences" : [
@@ -86,9 +86,9 @@
   ],
   "dependencies" : [
     {
-      "ref" : "74035280-723a-4a3b-a00d-4f2fe90228d1",
+      "ref" : "4f97ee81-4627-42f8-99db-405becb8d1ae",
       "dependsOn" : [
-        "f3c5ff2b-8a44-4d45-b56a-06c134e4cd44"
+        "cbc0d0e4-614f-499d-952a-86e573826c11"
       ]
     }
   ]
