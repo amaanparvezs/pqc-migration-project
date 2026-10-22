@@ -39,7 +39,7 @@ Both files are committed exactly as produced.
 
 ## What this shows
 
-- The setup works: the scanner resolves JDK types and detects a literal JCA signature call. A broken environment is ruled out as the cause of the java-jwt result.
+- The setup works: the scanner resolves JDK types and detects a literal JCA signature call. A general failure of the tool or of this CI setup is ruled out. This does not rule out problems specific to the java-jwt scans, such as the unresolved types reported in scan 01.
 - The CBOM metadata correctly identifies this repository and commit, because the scanned code lives in the repository that ran the workflow (unlike scan 01).
 
 ## Notes

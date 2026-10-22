@@ -4,7 +4,7 @@ A minimal Java program for testing whether a CBOM scanner detects a cryptographi
 
 ## Why it exists
 
-cbomkit v2.3.0 reported zero cryptographic assets for auth0/java-jwt 4.6.1, although its source contains five JCA calls (see [scan 00](../../scans/00-trial-java-jwt/)). In all five, the algorithm name reaches `getInstance` as a variable that was set elsewhere. This fixture isolates that pattern so it can be tested on its own.
+cbomkit v2.3.0 reported zero cryptographic assets for auth0/java-jwt 4.6.1, although its source contains five JCA call sites (see [scan 00](../../scans/00-trial-java-jwt/)). In all five, the algorithm name reaches `getInstance` as a method parameter whose value is set elsewhere. This fixture isolates that pattern so it can be tested on its own.
 
 ## Design
 
@@ -22,7 +22,7 @@ The only difference between cases is **how the algorithm name `"SHA256withRSA"` 
 | Case | Files | How the algorithm name reaches `getInstance` | Mirrors |
 | --- | --- | --- | --- |
 | (a) Literal | `CaseA_Literal.java` | Written directly at the call: `getInstance("SHA256withRSA")` | The simplest possible case; used as the control |
-| (b) Indirect | `CaseB_Indirect.java`, `CaseB_Helper.java` | Written in a factory method, passed to a constructor, stored in a field, read back by a getter, and passed as a parameter to a helper method in another class | auth0/java-jwt 4.6.1: `Algorithm.java` (factory), `RSAAlgorithm` (constructor, field, getter), `CryptoHelper.java` (the `getInstance` call) |
+| (b) Indirect | `CaseB_Indirect.java`, `CaseB_Helper.java` | Written in a factory method, passed to a constructor, stored in a field, read back by a getter, and passed as a parameter to a helper method in another class | A simplified version of auth0/java-jwt 4.6.1: `Algorithm.java` (factory method, `description` field, `getDescription()`), `RSAAlgorithm.java` (constructor, call into the helper), `CryptoHelper.java` (the `getInstance` call). java-jwt additionally passes the name through a superclass and between constructors. |
 
 ## Results
 

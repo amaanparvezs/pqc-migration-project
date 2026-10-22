@@ -18,7 +18,7 @@ Test whether the java-jwt code pattern alone causes the scanner to miss a JCA ca
 | (a) | `CaseA_Literal.java` | Written at the call site |
 | (b) | `CaseB_Indirect.java`, `CaseB_Helper.java` | Factory method `rsa256()`, then constructor, then field `description`, then `getDescription()`, then a parameter of `CaseB_Helper.createSignatureFor(...)` in another class |
 
-Case (b) mirrors java-jwt 4.6.1: `Algorithm.java` line 32 (factory), the `RSAAlgorithm` constructor and `super(id, algorithm)`, the `description` field, `getDescription()`, `RSAAlgorithm.java` line 80, and `CryptoHelper.java` line 157.
+Case (b) is a simplified version of the chain in java-jwt 4.6.1. There, the literal is set in a factory method (`Algorithm.java` line 32), passed through the `RSAAlgorithm` constructors to `super(id, algorithm)`, stored in the `description` field of the superclass `Algorithm`, read back with `getDescription()`, passed to `CryptoHelper.createSignatureFor(...)` (`RSAAlgorithm.java` line 80) and used at `Signature.getInstance(algorithm)` (`CryptoHelper.java` line 209). The fixture keeps every step except the superclass and the constructor delegation.
 
 The cases are defined in [`fixtures/indirection/README.md`](../../fixtures/indirection/README.md).
 
@@ -36,8 +36,8 @@ Both files are committed exactly as produced.
 ## What this shows
 
 - cbomkit-action v2.3.0 does not report a JCA call whose algorithm name is passed through a factory method, constructor, field, getter and a method parameter in another class, while it detects the identical call with a literal name in the same run.
-- No types were unresolved in this run, so the miss is caused by the indirection itself.
-- java-jwt uses this pattern for all five of its JCA calls, which is sufficient to explain the zero result of scans 00 and 01.
+- The log reported no unresolved imports/types, so the miss is not explained by missing types; it is caused by the indirection itself.
+- java-jwt passes the algorithm name to all five of its JCA call sites through a chain of the same kind (longer, via a superclass). This is consistent with, and would be sufficient to explain, the zero result of scans 00 and 01; it has not yet been tested on java-jwt directly.
 
 ## What this does not show
 
